@@ -1,0 +1,28 @@
+Server Listing Project
+
+- Game
+    - id
+    - name
+    - active
+
+- Server
+    - id
+    - game_id
+    - address
+    - port
+    - query_port
+    - title
+    - current_player_count
+    - max_player_count
+    - last_queried
+
+    Today (July 23rd):
+    - We are going to add server tagging
+        - Use the spatie package
+        - Connect with nova and build out resources
+    - And if we get time, we are going to explore tracking players per server, per 5m
+        - We will need seeders
+        - We will need factories
+        - We will need a migration for the table
+
+php artisan migrate:refresh && php artisan db:seed && php artisan fake:servers
