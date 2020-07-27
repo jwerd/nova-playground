@@ -4,12 +4,14 @@ namespace App\Nova\Metrics;
 
 use App\Models\Server;
 use App\Models\ServerHeartbeat;
+use App\Models\Traits\TrendBuilder;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
 
 class Heartbeat extends Trend
 {
+    use TrendBuilder;
     /**
      * Calculate the value of the metric.
      *
@@ -18,13 +20,17 @@ class Heartbeat extends Trend
      */
     public function calculate(NovaRequest $request, Server $server)
     {
-        //dd($request->all(), $server);
-        $max = 60*60;
+       // dd($request->get('range'));
+        $max = $this->translateRangeToMinutes($request->get('range'));
         $current = 0;
         $results = [];
         while($current < $max) {
-            $current += 300;
-            $date = (string) now()->subSeconds($current)->diffForHumans();
+            $current += 5;
+            if($current <= 60) {
+                $date = (string) now()->subMinutes($current)->diffForHumans();
+            } else {
+                $date = (string) now()->subMinutes($current)->format('g:i a l jS F Y');
+            }
             $results[$date] = rand(1,30);
         }
         return (new TrendResult)->trend(array_reverse($results));
@@ -39,12 +45,7 @@ class Heartbeat extends Trend
      */
     public function ranges()
     {
-        return [
-            10 => __('Last 10 minutes'),
-            30 => __('30 minutes'),
-            60 => __('60 minutes'),
-            90 => __('90 minutes'),
-        ];
+        return $this->getRange();
     }
 
     /**
