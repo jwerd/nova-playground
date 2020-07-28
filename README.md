@@ -7,6 +7,7 @@ A few key features:
 - Ability to create server listings under games
 - Ability to tag server listings
 - Ability to keep a heartbeat of server updates (player count, etc)
+- Ability to set attributes per sever and per game
 
 ## Future stuff
 
