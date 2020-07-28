@@ -25,4 +25,11 @@ Server Listing Project
         - We will need factories
         - We will need a migration for the table
 
+    Today (July 27th):
+    - We are going to add a responsive package to make nova work on all devices
+        - https://novapackages.com/packages/gregoriohc/laravel-nova-theme-responsive
+    - We are going to add server attributes (a polymorphic table, so we can store other attributes later)
+    - We are going to explore how nova handles these types of relationships
+    - We are going to explore how to query these relationships with performance in mind
+
 php artisan migrate:refresh && php artisan db:seed && php artisan fake:servers

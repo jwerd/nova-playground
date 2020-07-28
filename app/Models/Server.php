@@ -28,4 +28,12 @@ class Server extends Model
     public function heartbeat() {
         return $this->hasMany(ServerHeartbeat::class);
     }
+    
+    /**
+     * Get all of the games's attributes.
+     */
+    public function attributes()
+    {
+        return $this->morphMany('Attribute', 'attributable');
+    }
 }
