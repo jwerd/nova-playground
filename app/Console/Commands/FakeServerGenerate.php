@@ -60,6 +60,7 @@ class FakeServerGenerate extends Command
             for($i = 0; $i <= $num; $i++) {
                 $current = rand(0,30);
                 $max     = $current+rand(0,20);
+                $created = now()->subMinutes(rand(5,100000));
                 $servers[] = Server::create([
                     'game_id' => $game->id,
                     'title' => $this->faker->word." ".$i,
@@ -68,7 +69,9 @@ class FakeServerGenerate extends Command
                     'query_port' => rand(1000,9999),
                     'current_player_count' => $current,
                     'max_player_count'     => $max,
-                    'last_queried' => now()
+                    'last_queried' => now(),
+                    'created_at' => $created,
+                    'updated_at' => $created,
                 ]);
             }
         }

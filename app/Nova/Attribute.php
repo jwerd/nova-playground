@@ -22,7 +22,7 @@ class Attribute extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'property';
 
     /**
      * The columns that should be searched.

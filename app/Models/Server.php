@@ -17,6 +17,8 @@ class Server extends Model
         'port',
         'query_port',
         'last_queried',
+        'created_at',
+        'updated_at',
     ];
 
     public $casts = ['last_queried' => 'datetime'];

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\NewServersTrend;
+use App\Nova\Metrics\TotalNewServersMetric;
+use App\Nova\Metrics\TotalServersMetric;
+use App\Nova\Metrics\TotalUpdatedServersMetric;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -56,7 +60,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            (new TotalNewServersMetric())->width('1/3'),
+            (new TotalUpdatedServersMetric())->width('1/3'),
+            (new TotalServersMetric())->width('1/3'),
+            //(new NewServersTrend())->width('1/4'),
+            //new Help,
         ];
     }
 

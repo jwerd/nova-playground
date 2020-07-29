@@ -32,4 +32,9 @@ Server Listing Project
     - We are going to explore how nova handles these types of relationships
     - We are going to explore how to query these relationships with performance in mind
 
+    Today (July 28th):
+    - We are going to work on Dashboards
+        - New servers added Today
+        - Total servers updated Today
+        - Total Server count
 php artisan migrate:refresh && php artisan db:seed && php artisan fake:servers
