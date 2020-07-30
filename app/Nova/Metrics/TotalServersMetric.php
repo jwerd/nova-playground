@@ -17,7 +17,7 @@ class TotalServersMetric extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Server::class);
+        return $this->result(Server::count());
     }
 
     /**

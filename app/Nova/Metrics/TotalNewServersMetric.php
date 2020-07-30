@@ -18,7 +18,7 @@ class TotalNewServersMetric extends Value
     public function calculate(NovaRequest $request)
     {
         $server = Server::whereDate('created_at', now()->today());
-        return $this->count($request, $server);
+        return $this->result($server->count());
     }
 
     /**
