@@ -23,6 +23,20 @@ class Server extends Model
 
     public $casts = ['last_queried' => 'datetime'];
 
+    protected static function booted()
+    {
+        static::created(function ($model) {
+            $attributes = [];
+            foreach(config('attributes') as $property => $val) {
+                $attributes = [
+                    'property'       => $property,
+                    'property_value' => '',
+                ];
+                $model->attributes()->create($attributes);
+            }
+        });
+    }
+
     public function game() {
         return $this->belongsTo(Game::class);
     }
@@ -36,6 +50,6 @@ class Server extends Model
      */
     public function attributes()
     {
-        return $this->morphMany('Attribute', 'attributable');
+        return $this->morphMany('App\Models\Attribute', 'attributable');
     }
 }

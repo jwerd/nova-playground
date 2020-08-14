@@ -7,6 +7,7 @@ use App\Models\Server;
 use App\Models\ServerHeartbeat;
 use Faker\Factory;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class FakeServerGenerate extends Command
 {
@@ -43,7 +44,8 @@ class FakeServerGenerate extends Command
      */
     public function handle()
     {
-        
+        //dd($this->generateAttributes(1));
+
         $games = Game::all();
 
         $servers = $this->generateServers($games, rand(10,100));
@@ -56,7 +58,6 @@ class FakeServerGenerate extends Command
         $servers = [];
         foreach($games as $game) {
             // Generate servers
-            dump($game->name);
             for($i = 0; $i <= $num; $i++) {
                 $current = rand(0,30);
                 $max     = $current+rand(0,20);
@@ -96,5 +97,22 @@ class FakeServerGenerate extends Command
         }
 
         return $heartbeats;
+    }
+    
+    protected function generateAttributes($server_id)
+    {
+        $attributes = [
+            'version'     => rand(1000,2999),
+            'server_type' => ['pvp', 'pve'],
+            'location'    => ['US', 'CA', 'EU'],
+            'platform'    => ['Windows', 'Linux', 'Mac'],
+            'map'         => 'random_generated_map_hash_'.rand(0,10000),
+            'last_wipe'   => now()->subDays(rand(0,30)),
+        ];
+
+        $selectedAttributes = Arr::random($attributes, rand(0, count($attributes)));
+
+        dd($selectedAttributes);
+
     }
 }

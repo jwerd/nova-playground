@@ -11,6 +11,7 @@ class Attribute extends Model
         'property',
         'property_value'
     ];
+    
     public function attributable()
     {
         return $this->morphTo();
