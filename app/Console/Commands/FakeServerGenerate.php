@@ -44,7 +44,7 @@ class FakeServerGenerate extends Command
      */
     public function handle()
     {
-        //dd($this->generateAttributes(1));
+        dd($this->generateAttributes(1));
 
         $games = Game::all();
 
@@ -102,17 +102,13 @@ class FakeServerGenerate extends Command
     protected function generateAttributes($server_id)
     {
         $attributes = [
-            'version'     => rand(1000,2999),
-            'server_type' => ['pvp', 'pve'],
-            'location'    => ['US', 'CA', 'EU'],
-            'platform'    => ['Windows', 'Linux', 'Mac'],
-            'map'         => 'random_generated_map_hash_'.rand(0,10000),
-            'last_wipe'   => now()->subDays(rand(0,30)),
+            ['version'     => rand(1000,2999)],
+            ['server_type' => Arr::random(['pvp', 'pve'])],
+            ['location'    => Arr::random(['US', 'CA', 'EU'])],
+            ['platform'    => Arr::random(['Windows', 'Linux', 'Mac'])],
+            ['map'         => 'map_'.rand(0,10000)],
+            ['last_wiped'   => now()->subDays(rand(0,30))->format('Y-m-d')],
         ];
-
-        $selectedAttributes = Arr::random($attributes, rand(0, count($attributes)));
-
-        dd($selectedAttributes);
-
+        return collect($attributes)->random(3)->all();
     }
 }
