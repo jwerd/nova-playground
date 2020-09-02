@@ -44,12 +44,12 @@ class FakeServerGenerate extends Command
      */
     public function handle()
     {
-        dd($this->generateAttributes(1));
-
         $games = Game::all();
 
         $servers = $this->generateServers($games, rand(10,100));
 
+        $attributes = $this->generateAttributes($servers);
+        
         $heartbeats = $this->generateHeatbeats($servers, 86400);
     }
 
@@ -99,7 +99,23 @@ class FakeServerGenerate extends Command
         return $heartbeats;
     }
     
-    protected function generateAttributes($server_id)
+    protected function generateAttributes(array $servers)
+    {
+        $attributes = [];
+        foreach($servers as $server) {
+            foreach($this->getAttributes() as $attribute) {
+                foreach($attribute as $key => $val) {
+                    $attributes[] = $server->attributes()->create([
+                        'property'       => $key,
+                        'property_value' => $val,
+                    ]);
+                }
+            }
+        }
+        return $attributes;
+    }
+
+    protected function getAttributes()
     {
         $attributes = [
             ['version'     => rand(1000,2999)],
@@ -109,6 +125,7 @@ class FakeServerGenerate extends Command
             ['map'         => 'map_'.rand(0,10000)],
             ['last_wiped'   => now()->subDays(rand(0,30))->format('Y-m-d')],
         ];
-        return collect($attributes)->random(3)->all();
+        $return = collect($attributes)->random(3)->all();
+        return $return;
     }
 }

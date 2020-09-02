@@ -60,6 +60,7 @@ class Server extends Resource
             }),
             //DateTime::make( 'Last queried', 'last_queried')->diffForHumans(),
             Tags::make('Tags')->hideFromIndex(),
+            HasMany::make('Attributes')->hideFromIndex(),
             HasMany::make('Heartbeat')->hideFromIndex(),
         ];
     }
