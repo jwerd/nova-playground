@@ -105,10 +105,10 @@ class FakeServerGenerate extends Command
         foreach($servers as $server) {
             foreach($this->getAttributes() as $attribute) {
                 foreach($attribute as $key => $val) {
-                    $attributes[] = $server->attributes()->create([
+                    $attributes[] = $server->attributes()->updateOrCreate([
                         'property'       => $key,
-                        'property_value' => $val,
-                    ]);
+                    ], 
+                    ['property_value' => $val]);
                 }
             }
         }

@@ -25,16 +25,16 @@ class Server extends Model
 
     protected static function booted()
     {
-        // static::created(function ($model) {
-        //     $attributes = [];
-        //     foreach(config('attributes') as $property => $val) {
-        //         $attributes = [
-        //             'property'       => $property,
-        //             'property_value' => '',
-        //         ];
-        //         $model->attributes()->create($attributes);
-        //     }
-        // });
+        static::created(function ($model) {
+            $attributes = [];
+            foreach(config('attributes') as $property => $val) {
+                $attributes = [
+                    'property'       => $property,
+                    'property_value' => '',
+                ];
+                $model->attributes()->create($attributes);
+            }
+        });
     }
 
     public function game() {
