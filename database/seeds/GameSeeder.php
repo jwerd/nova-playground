@@ -12,7 +12,7 @@ class GameSeeder extends Seeder
      */
     public function run()
     {
-        factory(Game::class)->create([
+        Game::factory()->create([
             'name' => 'Rust',
             'active' => true,
         ]);
