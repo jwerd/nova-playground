@@ -22,7 +22,7 @@ class CreateServersTable extends Migration
             $table->string('title')->index();
             $table->unsignedInteger('current_player_count')->default('0');
             $table->unsignedInteger('max_player_count')->default('0');
-            $table->timestamp('last_queried')->index();
+            $table->timestamp('last_queried')->nullable()->index();
             $table->timestamps();
         });
     }

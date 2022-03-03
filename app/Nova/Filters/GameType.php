@@ -24,6 +24,10 @@ class GameType extends BooleanFilter
                 return !$v;
             })->all();
 
+            if(empty($values)) {
+                return true;
+            }
+
             return $query->whereIn('game_id', array_keys($values));
         }
     }
