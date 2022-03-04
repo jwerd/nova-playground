@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -48,6 +49,10 @@ class Game extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
             Boolean::make('Active', 'active'),
+//            Badge::make('active')->types([
+//                'draft' => 'font-medium text-gray-600',
+//                'published' => ['font-bold', 'text-green-600'],
+//            ])->hideFromIndex(),
             HasMany::make('Server')->hideFromIndex(),
         ];
     }
