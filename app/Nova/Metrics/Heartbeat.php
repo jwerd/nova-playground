@@ -20,7 +20,6 @@ class Heartbeat extends Trend
      */
     public function calculate(NovaRequest $request, Server $server)
     {
-       // dd($request->get('range'));
         $max = $this->translateRangeToMinutes($request->get('range'));
         $current = 0;
         $results = [];

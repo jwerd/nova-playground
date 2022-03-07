@@ -4,7 +4,7 @@ namespace App\Models\Traits;
 
 use Illuminate\Support\Arr;
 
-trait TrendBuilder 
+trait TrendBuilder
 {
     public function translateRangeToMinutes($range): int
     {
@@ -18,8 +18,8 @@ trait TrendBuilder
             '1d'  => 60 * 24,
             '7d'  => 60 * 24 * 7,
         ];
-        
-        return Arr::get($ranges, $range, 10);
+
+        return Arr::get($ranges, $range, 60);
     }
 
     public function getRange(): array

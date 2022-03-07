@@ -61,7 +61,7 @@ class Server extends Resource
             //DateTime::make( 'Last queried', 'last_queried')->diffForHumans(),
             Tags::make('Tags')->hideFromIndex(),
             HasMany::make('Attributes')->hideFromIndex(),
-            HasMany::make('Heartbeat')->hideFromIndex(),
+//            HasMany::make('Heartbeat')->hideFromIndex(),
         ];
     }
 
@@ -74,7 +74,7 @@ class Server extends Resource
     public function cards(Request $request)
     {
         return [
-            (new Heartbeat())->onlyOnDetail()->width('1/2')
+            (new Heartbeat())->onlyOnDetail()->width('full')
         ];
     }
 
