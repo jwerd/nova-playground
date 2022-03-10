@@ -18,7 +18,7 @@ class Heartbeat extends Trend
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
-    public function calculate(NovaRequest $request, Server $server)
+    public function calculate(NovaRequest $request)
     {
         $max = $this->translateRangeToMinutes($request->get('range'));
         $current = 0;
@@ -28,20 +28,20 @@ class Heartbeat extends Trend
             if($current <= 60) {
                 $date = (string) now()->subMinutes($current)->diffForHumans();
             } else {
-                $date = (string) now()->subMinutes($current)->format('g:i a l jS F Y');
+                $date = (string)now()->subMinutes($current)->format('g:i a l jS F Y');
             }
             $results[$date] = rand(1,30);
         }
-        return (new TrendResult)->trend(array_reverse($results));
 
-        //return $this->countByMinutes($request, ServerHeartbeat::class, 'current_player_count');
+        return (new TrendResult)->trend(array_reverse($results));
+//        return $this->countByMinutes($request, ServerHeartbeat::class, 'current_player_count');
     }
 
     /**
      * Get the ranges available for the metric.
      *
      * @return array
-     */
+    */
     public function ranges()
     {
         return $this->getRange();

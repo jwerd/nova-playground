@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e3b9312eb155d17e5aed56698f0ecbe",
+    "content-hash": "f0ea301c1eb911789e25c84273ccb825",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1096,6 +1096,53 @@
                 }
             ],
             "time": "2022-02-23T14:25:13+00:00"
+        },
+        {
+            "name": "gabrieliuga/laravel-nova-markdownextra",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabrieliuga/laravel-nova-markdownextra.git",
+                "reference": "dae8255e016f2c98ea6961ed5633ce656edc31b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabrieliuga/laravel-nova-markdownextra/zipball/dae8255e016f2c98ea6961ed5633ce656edc31b1",
+                "reference": "dae8255e016f2c98ea6961ed5633ce656edc31b1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=6.2",
+                "laravel/nova": ">=2.9",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gabrieliuga\\Markdownextra\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gabrieliuga\\Markdownextra\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel Nova Markdown extension to allow clipboard pasting of images.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/gabrieliuga/laravel-nova-markdownextra/issues",
+                "source": "https://github.com/gabrieliuga/laravel-nova-markdownextra/tree/v1.0.0"
+            },
+            "time": "2021-01-06T14:53:35+00:00"
         },
         {
             "name": "graham-campbell/result-type",

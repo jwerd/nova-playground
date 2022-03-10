@@ -46,12 +46,20 @@ class Server extends Model
     public function heartbeat() {
         return $this->hasMany(ServerHeartbeat::class);
     }
-    
+
     /**
-     * Get all of the games's attributes.
+     * Get all of the games attributes.
      */
     public function attributes()
     {
         return $this->morphMany('App\Models\Attribute', 'attributable');
+    }
+
+    /**
+     * Get all of the servers comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 }
