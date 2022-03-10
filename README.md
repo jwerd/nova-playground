@@ -8,9 +8,9 @@ A few key features:
 - Ability to tag server listings
 - Ability to keep a heartbeat of server updates (player count, etc)
 - Ability to set attributes per sever and per game
+- Comment system
 
 ## Future stuff
 
 - Trend metrics
-- Comment system
 - ...
