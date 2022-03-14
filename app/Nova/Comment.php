@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\CommentsByDay;
+use App\Nova\Metrics\Heartbeat;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
@@ -59,7 +61,9 @@ class Comment extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new CommentsByDay)->width('full')
+        ];
     }
 
     /**

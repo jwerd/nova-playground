@@ -2,14 +2,12 @@
 
 namespace App\Nova\Metrics;
 
-use App\Models\Server;
+use App\Models\Comment;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 
-class NewServersTrend extends Trend
+class CommentsByDay extends Trend
 {
-
-    public $name = 'New Servers (By Day)';
     /**
      * Calculate the value of the metric.
      *
@@ -18,7 +16,7 @@ class NewServersTrend extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Server::class)->showLatestValue();
+        return $this->countByDays($request, Comment::class);
     }
 
     /**
@@ -52,6 +50,6 @@ class NewServersTrend extends Trend
      */
     public function uriKey()
     {
-        return 'new-servers-trend';
+        return 'comments-by-day';
     }
 }
