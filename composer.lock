@@ -3628,16 +3628,16 @@
         },
         {
             "name": "spatie/nova-tags-field",
-            "version": "3.4.4",
+            "version": "3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/nova-tags-field.git",
-                "reference": "d263680a343597080d2812d3fdf2a61ffd321cc5"
+                "reference": "6deefeb0e027ce99c42ee451c33ea8951bc40f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/nova-tags-field/zipball/d263680a343597080d2812d3fdf2a61ffd321cc5",
-                "reference": "d263680a343597080d2812d3fdf2a61ffd321cc5",
+                "url": "https://api.github.com/repos/spatie/nova-tags-field/zipball/6deefeb0e027ce99c42ee451c33ea8951bc40f68",
+                "reference": "6deefeb0e027ce99c42ee451c33ea8951bc40f68",
                 "shasum": ""
             },
             "require": {
@@ -3682,7 +3682,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/nova-tags-field/issues",
-                "source": "https://github.com/spatie/nova-tags-field/tree/3.4.4"
+                "source": "https://github.com/spatie/nova-tags-field/tree/3.4.5"
             },
             "funding": [
                 {
@@ -3690,7 +3690,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-01-28T15:02:51+00:00"
+            "time": "2022-03-10T14:38:24+00:00"
         },
         {
             "name": "spatie/once",
