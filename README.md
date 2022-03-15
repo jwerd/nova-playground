@@ -9,8 +9,8 @@ A few key features:
 - Ability to keep a heartbeat of server updates (player count, etc)
 - Ability to set attributes per sever and per game
 - Comment system
+- Trend metrics
 
 ## Future stuff
 
-- Trend metrics
-- ...
+- Attribute partition (metric)
