@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Nova\Metrics\CommentsByDay;
+use App\Nova\Metrics\TotalCommentsByMonth;
 use App\Nova\Metrics\Heartbeat;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
@@ -62,7 +63,8 @@ class Comment extends Resource
     public function cards(Request $request)
     {
         return [
-            (new CommentsByDay)->width('full')
+            (new TotalCommentsByMonth)->width('1/2'),
+            (new CommentsByDay)->width('1/2'),
         ];
     }
 
