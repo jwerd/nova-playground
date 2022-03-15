@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\TagsField\Tags;
+use Signifly\Nova\Fields\ProgressBar\ProgressBar;
 
 class Server extends Resource
 {
@@ -53,8 +54,9 @@ class Server extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
             BelongsTo::make('Game'),
-            Number::make('Current Players', 'current_player_count'),
-            Number::make('Max Players', 'max_player_count'),
+            ProgressBar::make('Capacity')->hideWhenCreating()->hideWhenUpdating(),
+            Number::make('Current Players', 'current_player_count')->hideFromIndex(),
+            Number::make('Max Players', 'max_player_count')->hideFromIndex(),
             //$this->last_queried->diffForHumans(),
             Text::make('Last queried', function () {
                 return $this->last_queried->diffForHumans();

@@ -61,7 +61,7 @@ class FakeServerGenerate extends Command
         foreach($servers as $server) {
             // Generate comments
             for($i = 0; $i <= $num; $i++) {
-                $created = now()->setTimezone('America/Los_Angeles')->subMinutes(rand(0,10000));
+                $created = now()->subDays(rand(0,90))->subMinutes(rand(0,1440));
                 $server->comments()->create([
                     'body' => $this->faker->words(rand(3,7), true),
                     'created_at' => $created,
@@ -79,7 +79,7 @@ class FakeServerGenerate extends Command
             for($i = 0; $i <= $num; $i++) {
                 $current = rand(0,30);
                 $max     = $current+rand(0,20);
-                $created = now()->setTimezone('America/Los_Angeles')->subMinutes(rand(5,100000));
+                $created = now()->subMinutes(rand(5,100000));
                 $servers[] = Server::create([
                     'game_id' => $game->id,
                     'title' => $this->faker->word." ".$i,
@@ -108,8 +108,8 @@ class FakeServerGenerate extends Command
                 ServerHeartbeat::create([
                     'server_id' => $server->id,
                     'current_player_count' => rand(0,30),
-                    'created_at' => now()->setTimezone('America/Los_Angeles')->subSeconds($start),
-                    'updated_at' => now()->setTimezone('America/Los_Angeles')->subSeconds($start)
+                    'created_at' => now()->subSeconds($start),
+                    'updated_at' => now()->subSeconds($start)
                 ]);
             }
         }
@@ -141,7 +141,7 @@ class FakeServerGenerate extends Command
             ['location'    => Arr::random(['US', 'CA', 'EU'])],
             ['platform'    => Arr::random(['Windows', 'Linux', 'Mac'])],
             ['map'         => 'map_'.rand(0,10000)],
-            ['last_wiped'   => now()->setTimezone('America/Los_Angeles')->subDays(rand(0,30))->format('Y-m-d')],
+            ['last_wiped'   => now()->subDays(rand(0,30))->format('Y-m-d')],
         ];
         $return = collect($attributes)->random(3)->all();
         return $return;

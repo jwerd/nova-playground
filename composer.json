@@ -17,6 +17,7 @@
         "laravel/framework": "^8.0",
         "laravel/nova": "~3.0",
         "laravel/tinker": "^2.0",
+        "signifly/nova-progressbar-field": "^0.0.2",
         "spatie/laravel-tags": "^3",
         "spatie/nova-tags-field": "^3.4.4"
     },

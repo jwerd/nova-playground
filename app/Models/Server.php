@@ -62,4 +62,10 @@ class Server extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function getCapacityAttribute($value)
+    {
+        $percent = $this->current_player_count / $this->max_player_count * 100 / 100;
+        return $percent;
+    }
 }
