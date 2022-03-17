@@ -51,7 +51,7 @@ class Comment extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Body', 'body')->hideFromDetail(),
             Markdown::make('Body', 'body')->alwaysShow(),
-            Boolean::make('Hidden', 'hidden'),
+            Boolean::make('Active', 'active'),
         ];
     }
 
