@@ -1,4 +1,5 @@
 ## Nova Playground
+Running on Laravel 9!
 
 I built this project to quickly learn laravel nova.  It houses a server listing project I wrote a long time ago, but reimagined for laravel nova.
 
