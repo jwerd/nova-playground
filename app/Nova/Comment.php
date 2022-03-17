@@ -36,6 +36,7 @@ class Comment extends Resource
      */
     public static $search = [
         'id',
+        'body'
     ];
 
     /**

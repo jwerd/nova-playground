@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\AttributesPartition;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphTo;
@@ -31,6 +32,8 @@ class Attribute extends Resource
      */
     public static $search = [
         'id',
+        'property',
+        'property_value'
     ];
 
     /**
@@ -61,7 +64,9 @@ class Attribute extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new AttributesPartition)->width('1/2'),
+        ];
     }
 
     /**

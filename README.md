@@ -14,3 +14,4 @@ A few key features:
 ## Future stuff
 
 - Attribute partition (metric)
+- Lens: Most Players per Game

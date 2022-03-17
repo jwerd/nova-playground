@@ -33,6 +33,7 @@ class Game extends Resource
      */
     public static $search = [
         'id',
+        'name',
     ];
 
     /**
